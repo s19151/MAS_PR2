@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import io.github.s19151.model.OrderProduct;
 
 @Repository
-public interface SqlOrderProductRepository extends OrderProductRepository, JpaRepository<OrderProduct, Integer>{
+public interface SqlOrderProductRepository extends OrderProductRepository, JpaRepository<OrderProduct, Long>{
 
 }

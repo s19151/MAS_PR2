@@ -71,9 +71,10 @@ public class Order {
 		if(this.client != null && !this.client.equals(client)) {
 			this.client.removeOrder(this);
 		}
-		
-		this.client = client;
-		client.addOrder(this);
+		else if (this.client == null){
+			this.client = client;
+			client.addOrder(this);
+		}
 	}
 	
 	public void removeClient(Client client) {
