@@ -1,7 +1,8 @@
 package io.github.s19151.model;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -11,12 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "client")
+@Entity()
+@Table(name = "clients")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Client {
 	private long id;
@@ -25,7 +27,7 @@ public abstract class Client {
 	private String address;
 	
 	//connections
-	private List<Order> orders = new ArrayList<>();
+	private Set<Order> orders = new HashSet();
 	
 	public Client() {}
 	
@@ -40,11 +42,11 @@ public abstract class Client {
 	//connections
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<Order> getOrders() {
+	public Set<Order> getOrders() {
 		return orders;
 	}
 	
-	public void setOrders(List<Order> orders) {
+	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
 	}
 	

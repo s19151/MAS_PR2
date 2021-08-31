@@ -2,16 +2,20 @@ package io.github.s19151.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity(name = "manager")
+@Entity
+@Table(name = "managers")
 public class Manager extends Worker {
 	//connections
-	private List<SupplyComplaint> supplyComplaints = new ArrayList<>();
+	private Set<SupplyComplaint> supplyComplaints = new HashSet();
 	
 	public Manager() {};
 	
@@ -28,11 +32,11 @@ public class Manager extends Worker {
 	//connections
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<SupplyComplaint> getSupplyComplaints() {
+	public Set<SupplyComplaint> getSupplyComplaints() {
 		return supplyComplaints;
 	}
 	
-	public void setSupplyComplaints(List<SupplyComplaint> supplyComplaints) {
+	public void setSupplyComplaints(Set<SupplyComplaint> supplyComplaints) {
 		this.supplyComplaints = supplyComplaints;
 	}
 	

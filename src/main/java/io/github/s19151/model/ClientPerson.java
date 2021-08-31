@@ -6,9 +6,11 @@ import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity(name = "clientperson")
+@Entity
+@Table(name = "clientPeople")
 public class ClientPerson extends Client{	
 	private Person person;
 	

@@ -1,7 +1,7 @@
 package io.github.s19151.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -12,10 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "product")
+@Entity
+@Table(name = "products")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Product {
 	private long id;
@@ -26,8 +28,8 @@ public abstract class Product {
 	private String code;
 	
 	//connections
-	private List<OrderProduct> orderProducts = new ArrayList<>();
-	private List<SupplyProduct> supplyProducts = new ArrayList<>();
+	private Set<OrderProduct> orderProducts = new HashSet();
+	private Set<SupplyProduct> supplyProducts = new HashSet();
 	
 	Product() {}
 	
@@ -44,11 +46,11 @@ public abstract class Product {
 	//connections
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<OrderProduct> getOrderProducts() {
+	public Set<OrderProduct> getOrderProducts() {
 		return orderProducts;
 	}
 	
-	public void setOrderProducts(List<OrderProduct> orderProducts) {
+	public void setOrderProducts(Set<OrderProduct> orderProducts) {
 		this.orderProducts = orderProducts;
 	}
 	
@@ -67,11 +69,11 @@ public abstract class Product {
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<SupplyProduct> getSupplyProducts() {
+	public Set<SupplyProduct> getSupplyProducts() {
 		return supplyProducts;
 	}
 	
-	public void setSupplyProducts(List<SupplyProduct> supplyProducts) {
+	public void setSupplyProducts(Set<SupplyProduct> supplyProducts) {
 		this.supplyProducts = supplyProducts;
 	}
 	

@@ -5,10 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "supplyproduct")
+@Entity
+@Table(name = "supplyProducts")
 public class SupplyProduct {
 	private long id;
 	private int amount;

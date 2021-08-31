@@ -2,7 +2,9 @@ package io.github.s19151.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -11,10 +13,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "supplier")
+@Entity
+@Table(name = "suppliers")
 public class Supplier {
 	private long id;
 	private String name;
@@ -25,7 +29,7 @@ public class Supplier {
 	private LocalDate coopCommencementDate;
 	
 	//connections
-	private List<Supply> supplies = new ArrayList<>();
+	private Set<Supply> supplies = new HashSet();
 	
 	public Supplier() {}
 	
@@ -43,11 +47,11 @@ public class Supplier {
 	//connections
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<Supply> getSupplies() {
+	public Set<Supply> getSupplies() {
 		return supplies;
 	}
 	
-	public void setSupplies(List<Supply> supplies) {
+	public void setSupplies(Set<Supply> supplies) {
 		this.supplies = supplies;
 	}
 	

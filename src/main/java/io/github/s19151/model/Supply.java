@@ -1,8 +1,8 @@
 package io.github.s19151.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -11,17 +11,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "supply")
+@Entity
+@Table(name = "supplies")
 public class Supply {
 	private long id;
 	private LocalDate supplyDate;
 	
 	//connections
-	private List<SupplyProduct> supplyProducts = new ArrayList<>();
-	private List<SupplyComplaint> supplyComplaints = new ArrayList<>();
+	private Set<SupplyProduct> supplyProducts = new HashSet();
+	private Set<SupplyComplaint> supplyComplaints = new HashSet();
 	private Supplier supplier = null;
 	
 	public Supply() {}
@@ -35,11 +37,11 @@ public class Supply {
 	//connections
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<SupplyProduct> getSupplyProducts() {
+	public Set<SupplyProduct> getSupplyProducts() {
 		return supplyProducts;
 	}
 	
-	public void setSupplyProducts(List<SupplyProduct> supplyProducts) {
+	public void setSupplyProducts(Set<SupplyProduct> supplyProducts) {
 		this.supplyProducts = supplyProducts;
 	}
 	
@@ -58,11 +60,11 @@ public class Supply {
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<SupplyComplaint> getSupplyComplaints() {
+	public Set<SupplyComplaint> getSupplyComplaints() {
 		return supplyComplaints;
 	}
 	
-	public void setSupplyComplaints(List<SupplyComplaint> supplyComplaints) {
+	public void setSupplyComplaints(Set<SupplyComplaint> supplyComplaints) {
 		this.supplyComplaints = supplyComplaints;
 	}
 	

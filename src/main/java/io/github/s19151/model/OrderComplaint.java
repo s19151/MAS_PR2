@@ -1,18 +1,20 @@
 package io.github.s19151.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity(name = "ordercomplaint")
+@Entity
+@Table(name = "orderComplaints")
 public class OrderComplaint extends Complaint {
 	//connections
 	private Order order = null;
-	private List<Decision> decisions = new ArrayList<>();
+	private Set<Decision> decisions = new HashSet();
 	
 	//functional methods
 	
@@ -40,11 +42,11 @@ public class OrderComplaint extends Complaint {
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<Decision> getDecisions() {
+	public Set<Decision> getDecisions() {
 		return decisions;
 	}
 	
-	public void setDecisions(List<Decision> orderComplaints) {
+	public void setDecisions(Set<Decision> orderComplaints) {
 		this.decisions = orderComplaints;
 	}
 	

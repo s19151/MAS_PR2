@@ -2,8 +2,10 @@ package io.github.s19151.model;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity(name = "processor")
+@Entity
+@Table(name = "processors")
 public class Processor extends Product{
 	private int cores;
 	private int threads;

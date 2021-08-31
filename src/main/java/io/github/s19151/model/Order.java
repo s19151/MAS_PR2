@@ -2,7 +2,9 @@ package io.github.s19151.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -13,11 +15,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "shoporder")
+@Entity
+@Table(name = "Orders")
 public class Order {
 	private long id;
 	private LocalDate orderDate;
@@ -29,8 +33,8 @@ public class Order {
 	//connections
 	private Client client = null;
 	private Warehouseman warehouseman = null;
-	private List<OrderProduct> orderProducts = new ArrayList<>();
-	private List<OrderComplaint> orderComplaints = new ArrayList<>();
+	private Set<OrderProduct> orderProducts = new HashSet();
+	private Set<OrderComplaint> orderComplaints = new HashSet();
 	
 	public Order() {}
 	
@@ -101,11 +105,11 @@ public class Order {
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<OrderProduct> getOrderProducts() {
+	public Set<OrderProduct> getOrderProducts() {
 		return orderProducts;
 	}
 	
-	public void setOrderProducts(List<OrderProduct> orderProducts) {
+	public void setOrderProducts(Set<OrderProduct> orderProducts) {
 		this.orderProducts = orderProducts;
 	}
 	
@@ -124,11 +128,11 @@ public class Order {
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	public List<OrderComplaint> getOrderComplaints() {
+	public Set<OrderComplaint> getOrderComplaints() {
 		return orderComplaints;
 	}
 	
-	public void setOrderComplaints(List<OrderComplaint> orderComplaints) {
+	public void setOrderComplaints(Set<OrderComplaint> orderComplaints) {
 		this.orderComplaints = orderComplaints;
 	}
 	

@@ -10,10 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "complaint")
+@Entity
+@Table(name = "complaints")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Complaint {
 	private long id;

@@ -2,8 +2,10 @@ package io.github.s19151.model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "supplycomplaint")
+@Entity
+@Table(name = "supplyComplaints")
 public class SupplyComplaint extends Complaint {
 	//connections
 	private Supply supply = null;

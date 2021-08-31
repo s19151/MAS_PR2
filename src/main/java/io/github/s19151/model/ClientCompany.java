@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity(name = "clientcompany")
+@Entity
+@Table(name = "clientCompanies")
 public class ClientCompany extends Client {
 	private String companyName;
 	private String NIP;

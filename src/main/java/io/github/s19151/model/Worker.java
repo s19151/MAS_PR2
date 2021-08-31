@@ -10,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "worker")
+@Entity
+@Table(name = "workers")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Worker {
 	private long id;
