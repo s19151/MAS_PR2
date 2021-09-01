@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>MAS_PR2 - Index</title>
+		<title>MAS_PR2 - Home</title>
 		<link href="/resources/css/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
