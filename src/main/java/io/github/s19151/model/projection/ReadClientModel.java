@@ -30,8 +30,6 @@ public class ReadClientModel {
 	private String REGON;
 	
 	private ClientType type;
-	
-	private Set<ReadOrderModel> orders;
 
 	public ReadClientModel(Client source) {
 		this.id = source.getId();
@@ -39,10 +37,6 @@ public class ReadClientModel {
 		
 		this.phoneNumbers = new ArrayList<>(source.getPhoneNumbers());
 		this.emails = new ArrayList<>(source.getEmails());
-		
-		this.orders = source.getOrders().stream()
-				.map(ReadOrderModel::new)
-				.collect(Collectors.toSet());
 		
 		if(source instanceof ClientPerson) {
 			this.firstname = ((ClientPerson) source).getFirstname();
@@ -90,14 +84,6 @@ public class ReadClientModel {
 	
 	public void setAddress(String newAddress) {
 		address = newAddress;
-	}
-	
-	public Set<ReadOrderModel> getOrders() {
-		return orders;
-	}
-	
-	public void setOrders(Set<ReadOrderModel> newOrders) {
-		orders = newOrders;
 	}
 	
 	public String getFirstname() {

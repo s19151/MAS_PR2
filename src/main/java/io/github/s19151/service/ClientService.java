@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import io.github.s19151.model.Client;
 import io.github.s19151.model.projection.ReadClientModel;
+import io.github.s19151.model.projection.ReadClientOrderModel;
 import io.github.s19151.repository.ClientRepository;
 
 @Service
@@ -26,8 +27,8 @@ public class ClientService {
 				.collect(Collectors.toList());
 	}
 	
-	public Optional<ReadClientModel> get(Long id) {
-		return repository.findById(id).map(ReadClientModel::new);
+	public Optional<ReadClientOrderModel> get(Long id) {
+		return repository.findById(id).map(ReadClientOrderModel::new);
 	}
 	
 	public void save(Client client) {

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import io.github.s19151.model.projection.ClientType;
 import io.github.s19151.model.projection.ReadClientModel;
+import io.github.s19151.model.projection.ReadClientOrderModel;
 import io.github.s19151.service.ClientService;
 
 @Controller
@@ -35,7 +36,7 @@ public class ClientController {
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/{id}")
 	public ModelAndView readClient(@PathVariable("id") Long id) {
-		Optional<ReadClientModel> client = service.get(id);
+		Optional<ReadClientOrderModel> client = service.get(id);
 		
 		ModelAndView mv = new ModelAndView();
 		

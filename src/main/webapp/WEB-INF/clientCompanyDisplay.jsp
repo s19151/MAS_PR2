@@ -44,30 +44,30 @@
 					</td>
 					
 					<td>
-					<c:choose>
-						<c:when test="${client.getOrders().size()!=0}">
-							<table>
-								<th>No.</th>
-								<th>Placed On</th>
-								<th>Closed On</th>
-								<th>Current State</th>
-								<th>Total price</th>
-								<%int i=1;%>
-								<c:forEach items="${client.orders}" var="order">
-								<tr>
-									<td><%=i++%></td>
-									<td>${order.getOrderDate()}</td>
-									<td>${order.getOrderCloseDate()}</td>
-									<td>${order.getOrderState()}</td>
-									<td>${order.getPrice()}</td>
-								</tr>
-								</c:forEach>
-							</table>
-						</c:when>
-						<c:when test="${client.getOrders().size()==0}">
-							Client has no orders
-						</c:when>
-					</c:choose>
+						<c:choose>
+							<c:when test="${client.getOrders().size()!=0}">
+								<table>
+									<th>No.</th>
+									<th>Placed On</th>
+									<th>Closed On</th>
+									<th>Current State</th>
+									<th>Total price</th>
+									<%int i=1;%>
+									<c:forEach items="${client.orders}" var="order">
+									<tr>
+										<td><%=i++%></td>
+										<td>${order.getOrderDate()}</td>
+										<td>${order.getOrderCloseDate()}</td>
+										<td>${order.getOrderState()}</td>
+										<td>${order.getPrice()}</td>
+									</tr>
+									</c:forEach>
+								</table>
+							</c:when>
+							<c:when test="${client.getOrders().size()==0}">
+								Client has no orders
+							</c:when>
+						</c:choose>
 					</td>
 				</tr>
 			</table>
