@@ -10,14 +10,16 @@ public class ReadProductModel {
 	private String description;
 	private ProductType productType;
 	private String code;
+	private int amount;
 
-	public ReadProductModel(Product source) {
+	public ReadProductModel(Product source, int amount) {
 		this.id = source.getId();
 		this.name = source.getName();
 		this.price = source.getPrice();
 		this.description = source.getDescription();
 		this.productType = source.getProductType();
 		this.code = source.getCode();
+		this.amount = amount;
 	}
 	
 	public long getId() {
@@ -66,5 +68,13 @@ public class ReadProductModel {
 	
 	public void setCode(String code) {
 		this.code = code;
+	}
+	
+	public long getAmount() {
+		return amount;
+	}
+	
+	public void setAmount(int newAmount) {
+		this.amount = newAmount;
 	}
 }

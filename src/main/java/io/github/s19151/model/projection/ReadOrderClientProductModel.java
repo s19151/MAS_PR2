@@ -15,7 +15,7 @@ public class ReadOrderClientProductModel extends ReadOrderModel {
 		
 		this.products = source.getOrderProducts().stream()
 				.map(c -> {
-					return new ReadProductModel(c.getProduct());
+					return new ReadProductModel(c.getProduct(), c.getAmount());
 				})
 				.collect(Collectors.toSet());
 		

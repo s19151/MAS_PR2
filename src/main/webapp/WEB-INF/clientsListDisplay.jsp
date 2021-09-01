@@ -8,41 +8,52 @@
 		<title>MAS_PR2 - List all clients</title>
 	</head>
 	<body>
-		<h1 align="center">Clients List</h1>
-		<div class="clientsList" align="center">
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Type</th>
-				</tr>
-				<c:forEach items="${clientsList}" var="client">
-				<tr>
-					<td>${client.getId()}</td>
-					<td>
-						<c:choose>
-							<c:when test="${client.getClientType().getVal()==0}">
-								${client.getFirstname()} ${client.getLastname()}
-							</c:when>
-							<c:when test="${client.getClientType().getVal()==1}">
-								${client.getCompanyName()}
-							</c:when>
-						</c:choose>
-					</td>
-					<td>
-						<c:choose>
-							<c:when test="${client.getClientType().getVal()==0}">
-								Person
-							</c:when>
-							<c:when test="${client.getClientType().getVal()==1}">
-								Company
-							</c:when>
-						</c:choose>
-					</td>
-					<td><a href="/MAS_PR2/clients/${client.getId()}">View</a></td>
-				</tr>
-				</c:forEach>
-			</table>
+		<div class="container" align="center">
+			<h1>Clients List</h1>
+			<div class="menu">
+				<table>
+					<tr>
+						<td><a href="/MAS_PR2/">Home</a></td>
+						<td><a href="/MAS_PR2/clients">Clients</a></td>
+						<td><a href="/MAS_PR2/orders">Orders</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="dClients">
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Type</th>
+					</tr>
+					<c:forEach items="${clientsList}" var="client">
+					<tr>
+						<td>${client.getId()}</td>
+						<td>
+							<c:choose>
+								<c:when test="${client.getClientType().getVal()==0}">
+									${client.getFirstname()} ${client.getLastname()}
+								</c:when>
+								<c:when test="${client.getClientType().getVal()==1}">
+									${client.getCompanyName()}
+								</c:when>
+							</c:choose>
+						</td>
+						<td>
+							<c:choose>
+								<c:when test="${client.getClientType().getVal()==0}">
+									Person
+								</c:when>
+								<c:when test="${client.getClientType().getVal()==1}">
+									Company
+								</c:when>
+							</c:choose>
+						</td>
+						<td><a href="/MAS_PR2/clients/${client.getId()}">View</a></td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>

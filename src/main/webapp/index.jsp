@@ -6,14 +6,16 @@
 		<link href="/resources/css/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div class="container">
+		<div class="container" align="center">
+			<h1>Home</h1>
 			<div class="menu">
-				<ul>
-					<li>Home</li>
-					<li><a href="/MAS_PR2/clients">Clients</a></li>
-					<li><a href="/MAS_PR2/orders">Orders</a></li>
-					<li>Workers</li>
-				</ul>
+				<table>
+					<tr>
+						<td><a href="/MAS_PR2/">Home</a></td>
+						<td><a href="/MAS_PR2/clients">Clients</a></td>
+						<td><a href="/MAS_PR2/orders">Orders</a></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	
