@@ -12,8 +12,9 @@
 			<table>
 				<tr>
 					<th>ID</th>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th>Company Name</th>
+					<th>NIP</th>
+					<th>REGON</th>
 					<th>Address</th>
 					<th>Phone Numbers</th>
 					<th>E-mails</th>
@@ -21,8 +22,9 @@
 				</tr>
 				<tr>
 					<td>${client.getId()}</td>
-					<td>${client.getFirstname()}</td>
-					<td>${client.getLastname()}</td>
+					<td>${client.getCompanyName()}</td>
+					<td>${client.getNIP()}</td>
+					<td>${client.getREGON()}</td>
 					<td>${client.getAddress()}</td>
 					
 					<td>
@@ -42,7 +44,7 @@
 					</td>
 					
 					<td>
-						<c:choose>
+					<c:choose>
 						<c:when test="${client.getOrders().size()!=0}">
 							<table>
 								<th>No.</th>
@@ -51,9 +53,9 @@
 								<th>Current State</th>
 								<th>Total price</th>
 								<%int i=1;%>
-								<c:forEach items="${client.getOrders()}" var="order">
+								<c:forEach items="${client.orders}" var="order">
 								<tr>
-									<td><%=i++%>
+									<td><%=i++%></td>
 									<td>${order.getOrderDate()}</td>
 									<td>${order.getOrderCloseDate()}</td>
 									<td>${order.getOrderState()}</td>
@@ -65,10 +67,10 @@
 						<c:when test="${client.getOrders().size()==0}">
 							Client has no orders
 						</c:when>
-						</c:choose>
+					</c:choose>
 					</td>
 				</tr>
-		</table>
+			</table>
 		</div>
 	</body>
 </html>

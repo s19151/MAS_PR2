@@ -2,6 +2,7 @@ package io.github.s19151.model.projection;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -36,8 +37,8 @@ public class ReadClientModel {
 		this.id = source.getId();
 		this.address = source.getAddress();
 		
-		this.phoneNumbers = source.getPhoneNumbers();
-		this.emails = source.getEmails();
+		this.phoneNumbers = new ArrayList<>(source.getPhoneNumbers());
+		this.emails = new ArrayList<>(source.getEmails());
 		
 		this.orders = source.getOrders().stream()
 				.map(ReadOrderModel::new)
@@ -52,8 +53,8 @@ public class ReadClientModel {
 		}
 		else {
 			this.companyName = ((ClientCompany) source).getCompanyName();
-			this.companyName = ((ClientCompany) source).getNIP();
-			this.companyName = ((ClientCompany) source).getREGON();
+			this.NIP = ((ClientCompany) source).getNIP();
+			this.REGON = ((ClientCompany) source).getREGON();
 			
 			type = ClientType.ClientCompany;
 		}

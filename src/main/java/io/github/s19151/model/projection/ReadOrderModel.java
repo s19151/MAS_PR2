@@ -11,6 +11,7 @@ public class ReadOrderModel {
 	private LocalDate orderCloseDate;
 	private OrderState orderState;
 	private long fulfillmentTime;
+	private double price;
 	
 	public ReadOrderModel(Order source) {
 		this.id = source.getId();
@@ -18,6 +19,7 @@ public class ReadOrderModel {
 		this.orderCloseDate = source.getOrderCloseDate();
 		this.orderState = source.getOrderState();
 		this.fulfillmentTime = source.getFulfillmentTime();
+		this.price = source.getPrice();
 	}
 	
 	public long getId() {
@@ -58,5 +60,13 @@ public class ReadOrderModel {
 	
 	public void setFulfillmentTime(long newFulfillmentTime) {
 		fulfillmentTime = newFulfillmentTime;
+	}
+	
+	public double getPrice() {
+		return price;
+	}
+	
+	public void setPrice(double newPrice) {
+		price = newPrice;
 	}
 }
