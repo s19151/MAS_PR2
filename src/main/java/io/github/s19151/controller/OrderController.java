@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import io.github.s19151.model.projection.ReadOrderClientProductModel;
 import io.github.s19151.model.projection.ReadOrderModel;
-import io.github.s19151.model.projection.ReadOrderProductModel;
 import io.github.s19151.service.OrderService;
 
 @Controller
@@ -22,6 +22,7 @@ public class OrderController {
 		this.service = service;
 	}
 	
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView readAllOrders() {
 		List<ReadOrderModel> orderList = service.listAll();
 		
@@ -34,7 +35,7 @@ public class OrderController {
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/{id}")
 	public ModelAndView readClient(@PathVariable("id") Long id) {
-		Optional<ReadOrderProductModel> order = service.get(id);
+		Optional<ReadOrderClientProductModel> order = service.get(id);
 		
 		ModelAndView mv = new ModelAndView();
 		

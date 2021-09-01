@@ -5,9 +5,10 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>MAS_PR2 - Client's orders</title>
+		<title>MAS_PR2 - Client's Details</title>
 	</head>
 	<body>
+		<h1 align="center">Client's Details</h1>
 		<div class="dClient" align="center">
 			<table>
 				<tr>
@@ -45,11 +46,14 @@
 						<c:choose>
 							<c:when test="${client.getOrders().size()!=0}">
 								<table>
-									<th>No.</th>
-									<th>Placed On</th>
-									<th>Closed On</th>
-									<th>Current State</th>
-									<th>Total price</th>
+									<tr>
+										<th>No.</th>
+										<th>Placed On</th>
+										<th>Closed On</th>
+										<th>Current State</th>
+										<th>Total price</th>
+									</tr>
+									
 									<%int i=1;%>
 									<c:forEach items="${client.getOrders()}" var="order">
 									<tr>
@@ -58,6 +62,7 @@
 										<td>${order.getOrderCloseDate()}</td>
 										<td>${order.getOrderState()}</td>
 										<td>${order.getPrice()}</td>
+										<td><a href="/MAS_PR2/orders/${order.getId()}">View Details</a></td>
 									</tr>
 									</c:forEach>
 								</table>

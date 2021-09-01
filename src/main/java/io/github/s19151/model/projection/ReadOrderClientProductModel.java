@@ -5,11 +5,12 @@ import java.util.stream.Collectors;
 
 import io.github.s19151.model.Order;
 
-public class ReadOrderProductModel extends ReadOrderModel {
+public class ReadOrderClientProductModel extends ReadOrderModel {
 
 	private Set<ReadProductModel> products;
+	private ReadClientModel client;
 
-	public ReadOrderProductModel(Order source) {
+	public ReadOrderClientProductModel(Order source) {
 		super(source);
 		
 		this.products = source.getOrderProducts().stream()
@@ -17,6 +18,8 @@ public class ReadOrderProductModel extends ReadOrderModel {
 					return new ReadProductModel(c.getProduct());
 				})
 				.collect(Collectors.toSet());
+		
+		this.client = new ReadClientModel(source.getClient());
 	}
 	
 	public Set<ReadProductModel> getProducts() {
@@ -25,6 +28,14 @@ public class ReadOrderProductModel extends ReadOrderModel {
 	
 	public void setProducts(Set<ReadProductModel> newProducts) {
 		products = newProducts;
+	}
+	
+	public ReadClientModel getClient() {
+		return client;
+	}
+	
+	public void setClient(ReadClientModel newClient) {
+		client = newClient;
 	}
 
 }

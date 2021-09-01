@@ -145,4 +145,8 @@ public class ReadClientModel {
 	public void setClientType(ClientType newType) {
 		type = newType;
 	}
+	
+	public String printName() {
+		return (type.getVal() == 0 ? getFirstname() + " " + getLastname() : getCompanyName());
+	}
 }

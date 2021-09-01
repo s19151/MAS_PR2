@@ -10,8 +10,8 @@
 			<div class="menu">
 				<ul>
 					<li>Home</li>
-					<li>Clients</li>
-					<li>Orders</li>
+					<li><a href="/MAS_PR2/clients">Clients</a></li>
+					<li><a href="/MAS_PR2/orders">Orders</a></li>
 					<li>Workers</li>
 				</ul>
 			</div>

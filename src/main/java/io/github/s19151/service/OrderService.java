@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.github.s19151.model.Order;
+import io.github.s19151.model.projection.ReadOrderClientProductModel;
 import io.github.s19151.model.projection.ReadOrderModel;
-import io.github.s19151.model.projection.ReadOrderProductModel;
 import io.github.s19151.repository.OrderRepository;
 
 @Service
@@ -27,8 +27,8 @@ public class OrderService {
 				.collect(Collectors.toList());
 	}
 	
-	public Optional<ReadOrderProductModel> get(Long id) {
-		return repository.findById(id).map(ReadOrderProductModel::new);
+	public Optional<ReadOrderClientProductModel> get(Long id) {
+		return repository.findById(id).map(ReadOrderClientProductModel::new);
 	}
 	
 	public void save(Order order) {

@@ -5,9 +5,10 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>MAS_PR2 - Client's orders</title>
+		<title>MAS_PR2 - Client's Details</title>
 	</head>
 	<body>
+		<h1 align="center">Client's Details</h1>
 		<div class="dClient" align="center">
 			<table>
 				<tr>
@@ -60,6 +61,7 @@
 										<td>${order.getOrderCloseDate()}</td>
 										<td>${order.getOrderState()}</td>
 										<td>${order.getPrice()}</td>
+										<td><a href="/MAS_PR2/orders/${order.getId()}">View Details</a></td>
 									</tr>
 									</c:forEach>
 								</table>
